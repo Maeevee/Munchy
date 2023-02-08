@@ -1,4 +1,4 @@
-# Munchy Recipe Finder
+# Munchy Recipe Finder Web Application
 
 ##
 
