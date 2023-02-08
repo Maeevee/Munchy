@@ -20,6 +20,7 @@ body{
 /* NavBar */
 header nav.navbar{
     background-color: var(--page-color-main);
+background: linear-gradient(180deg, rgb(230, 183, 142) 12%, rgb(233, 196, 157) 43%, rgb(234, 214, 190) 89%);
 
 }
 
