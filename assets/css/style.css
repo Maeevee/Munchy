@@ -47,9 +47,3 @@ a.navbar-brand:hover, div.navbar-nav a.nav-link:hover{
         justify-content: flex-end;
     }
 }
-
-@media (max-width: 500px) {
-    nav a.navbar-brand{
-        /* font-size: 35px; */
-    }
-}
