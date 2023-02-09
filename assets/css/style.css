@@ -1,3 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --page-color-main: #0a4808;
+    /* --page-color-secondary: #707070; */
+    --font-color-main: #87f57b;
+    --hover-color: #81f577;    
+}
+
+body{
+    background-image: url(../img/body-background.jpg);
+    background-size: cover;
+}
+/* Generale styles */
+
+/* NavBar */
+header nav.navbar{
+    background-color: var(--page-color-main);
+background: linear-gradient(180deg, rgb(12, 57, 1) 12%, rgb(30, 91, 13) 43%, rgb(59, 116, 33) 89%);
+
+}
+
+a.navbar-brand{
+    font-size: 2.5rem;
+    line-height: 35px;
+}
+
+a.navbar-brand, div.navbar-nav a.nav-link{
+    transition: 0.5s;
+    color: var(--font-color-main);
+}
+
+a.navbar-brand:hover, div.navbar-nav a.nav-link:hover{
+    color: var(--hover-color);
+    filter: drop-shadow(0px 0px 6px #c6f795);
+}
+
+button.navbar-toggler{
+    color: var(--font-color-main);
+    border: var(--font-color-main) solid 1px;
+}
+
+/* Input */
+
+/* Main */
+
+@media (min-width: 992px) {
+    #navbarNavAltMarkup{
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+
+
+
+
 /* Style of search bar */
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap"); */
 
