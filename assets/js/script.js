@@ -108,6 +108,9 @@ function getRecipe() {
       cardTitle.text(response.results[i].title);
       recipeImg.attr('src', response.results[i].image);
 
+      console.log(response.results[i].title)
+      console.log( response.results[i].image)
+
       cardBody.append(cardTitle);
       cardBody.append(recipeImg);
       cardDiv.append(cardBody);
