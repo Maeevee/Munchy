@@ -57,47 +57,40 @@ $.ajax({
 
 });
 
+<<<<<<<<< Temporary merge branch 1
 function getRecipe(recipe){
 
-}  */
+}
 
-// get 5-days forecast
-// getForecast(city).then(function (forecasts) {
-//     console.log(forecasts);
-//     let html = "";
-//     html += "<p class='forecast-header'>5-Day Forecast:</p>";
-//     html += "<div class='row'>"
-//     forecasts.list.forEach((forecast) => {
-//         if (forecast.dt_txt.split(" ")[1] == "00:00:00") {
-//             html += "<div class='col-2 border border-dark forecast-container'>";
-//             html += "<p class='forecast-date'>" + moment(forecast.dt * 1000).format("DD/MM/YYYY") + "</p>";
-//             html += "<p> Temp: " + forecast.main.temp + "°C </p>";
-//             html += "<p> Wind: " + forecast.wind.speed + " KPH </p>";
-//             html += "<p> Humidity: " + forecast.main.humidity + "% </p>";
-//             html += "</div>";
-//         }
-//     });
-//     html += "</div>"
-//     $('#forecast').html(html);
-// });
+    // get 5-days forecast
+    // getForecast(city).then(function (forecasts) {
+    //     console.log(forecasts);
+    //     let html = "";
+    //     html += "<p class='forecast-header'>5-Day Forecast:</p>";
+    //     html += "<div class='row'>"
+    //     forecasts.list.forEach((forecast) => {
+    //         if (forecast.dt_txt.split(" ")[1] == "00:00:00") {
+    //             html += "<div class='col-2 border border-dark forecast-container'>";
+    //             html += "<p class='forecast-date'>" + moment(forecast.dt * 1000).format("DD/MM/YYYY") + "</p>";
+    //             html += "<p> Temp: " + forecast.main.temp + "°C </p>";
+    //             html += "<p> Wind: " + forecast.wind.speed + " KPH </p>";
+    //             html += "<p> Humidity: " + forecast.main.humidity + "% </p>";
+    //             html += "</div>";
+    //         }
+    //     });
+    //     html += "</div>"
+    //     $('#forecast').html(html);
+    // });
 
-/* $(document).ready(function () {
+$(document).ready(function () {
     $('#getRecipeBtn').click(function () {
         const recipe = $('#search-input').val();
         // get recipt
         fetchData(recipe);
     });
-}); */
-
-$(".getRecipeBtn").on("click", function (event) {
-  event.preventDefault();
-
-  query = $("#search-input").val().trim();
-
-  console.log(query);
-
-  getRecipe();
-});
+=========
+//testing spoonacular
+// can confirm returns results to console and accepts 3-4 ingredients before returning minimal responses LMB
 
 function getRecipe() {
   var queryUrl =
@@ -123,7 +116,5 @@ function getRecipe() {
 
       cardTitle.text(response.products.title);
 
-      cardbody.append(cardTitle);
-    }
-  });
-}
+>>>>>>>>> Temporary merge branch 2
+});
