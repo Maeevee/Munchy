@@ -5,7 +5,14 @@
 // Calling API via set variable to test it works. Using prewritten script provided by API creator.  LMB
 //can confirm logs results to the console. LMB
 
-var query = 'soup';
+var query = 'tomato,+pepper,+chicken,+chilli';
+/* var query1 = 'onion';
+var query2 = 'pepper';
+var query3 = 'squid';
+var query4= 'salt';
+var query5 = 'goat'; */
+
+
 var queryURL ='https://api.api-ninjas.com/v1/recipe?query=' + query;
 
  $.ajax({
@@ -35,34 +42,16 @@ $.ajax({
 
 });
 
-function getRecipe(recipe){
+//testing spoonacular
+// can confirm returns results to console and accepts 3-4 ingredients before returning minimal responses LMB
 
-}
+var spoonUrl = 'https://api.spoonacular.com/food/products/search?query=' + query /* + query1 + query2 + query3 + query4 + query5  */+'&apiKey=6f5b740887744617a3980e15981b89e9'
 
-    // get 5-days forecast
-    // getForecast(city).then(function (forecasts) {
-    //     console.log(forecasts);
-    //     let html = "";
-    //     html += "<p class='forecast-header'>5-Day Forecast:</p>";
-    //     html += "<div class='row'>"
-    //     forecasts.list.forEach((forecast) => {
-    //         if (forecast.dt_txt.split(" ")[1] == "00:00:00") {
-    //             html += "<div class='col-2 border border-dark forecast-container'>";
-    //             html += "<p class='forecast-date'>" + moment(forecast.dt * 1000).format("DD/MM/YYYY") + "</p>";
-    //             html += "<p> Temp: " + forecast.main.temp + "°C </p>";
-    //             html += "<p> Wind: " + forecast.wind.speed + " KPH </p>";
-    //             html += "<p> Humidity: " + forecast.main.humidity + "% </p>";
-    //             html += "</div>";
-    //         }
-    //     });
-    //     html += "</div>"
-    //     $('#forecast').html(html);
-    // });
+$.ajax({
+    url: spoonUrl,
+    method: "GET",
+}).then(function(response){
 
-$(document).ready(function () {
-    $('#getRecipeBtn').click(function () {
-        const recipe = $('#search-input').val();
-        // get recipt
-        fetchData(recipe);
-    });
+    console.log(response)
+
 });
