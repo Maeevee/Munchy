@@ -12,6 +12,7 @@ var query4= 'salt';
 var query5 = 'goat'; */
 
 let query;
+let recipeID;
 
 /* var queryURL ='https://api.api-ninjas.com/v1/recipe?query=' + query;
 
@@ -71,6 +72,9 @@ function getRecipe(recipe){
         fetchData(recipe);
     } */
 
+
+    // on click function to generate return result from API in colsole
+
     $(".getRecipeBtn").on("click", function (event) {
       event.preventDefault();
     
@@ -85,7 +89,7 @@ function getRecipe(recipe){
 
 function getRecipe() {
   var queryUrl =
-    "https://api.spoonacular.com/food/products/search?query=" +
+    "https://api.spoonacular.com/recipes/complexSearch?query=" +
     query +
     "&apiKey=6f5b740887744617a3980e15981b89e9";
 
@@ -95,18 +99,27 @@ function getRecipe() {
   }).then(function (response) {
     console.log(response);
 
-    for (let i = 0; i < response.products.length; i++) {
-      console.log(response.products[i]);
+    // display data to html
+
+    for (let i = 0; i < response.results.length; i++) {
+      console.log(response.reesults[i]);
 
       var cardDiv = $("<div>");
-      var cardbody = $("<div>");
+      var cardBody = $("<div>");
       var recipeImg = $("<img>");
       var cardTitle = $("<h3>");
       var cardContent = $("<ul>");
       var cardweather = $("<li>");
 
-      cardTitle.text(response.products.title);
+      cardTitle.text(response.results[i].title);
+      cardBody.append(cardTitle)
+      cardDiv.append(cardBody)
+
+      console.log(cardTitle)
     }
 
 })
 }
+
+// get recipe information using id from get recipe
+ //var recipeUrl = 'https://api.spoonacular.com/recipes/' + recipeID + '/information&apiKey=6f5b740887744617a3980e15981b89e9' 
