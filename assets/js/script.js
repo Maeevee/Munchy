@@ -55,3 +55,18 @@ $.ajax({
     console.log(response)
 
 });
+
+
+$(document).ready(function () {
+    // get user input when the get recipe button clicked
+    $('#getRecipeBtn').click(function () {
+        const recipe = $('#search-input').val();
+        // get recipe
+        getRecipe(recipe);
+    });
+});
+
+//function for fetching recipe api
+function getRecipe(recipe){
+
+}
