@@ -55,3 +55,35 @@ $.ajax({
     console.log(response)
 
 });
+
+function getRecipe(recipe){
+
+}
+
+    // get 5-days forecast
+    // getForecast(city).then(function (forecasts) {
+    //     console.log(forecasts);
+    //     let html = "";
+    //     html += "<p class='forecast-header'>5-Day Forecast:</p>";
+    //     html += "<div class='row'>"
+    //     forecasts.list.forEach((forecast) => {
+    //         if (forecast.dt_txt.split(" ")[1] == "00:00:00") {
+    //             html += "<div class='col-2 border border-dark forecast-container'>";
+    //             html += "<p class='forecast-date'>" + moment(forecast.dt * 1000).format("DD/MM/YYYY") + "</p>";
+    //             html += "<p> Temp: " + forecast.main.temp + "°C </p>";
+    //             html += "<p> Wind: " + forecast.wind.speed + " KPH </p>";
+    //             html += "<p> Humidity: " + forecast.main.humidity + "% </p>";
+    //             html += "</div>";
+    //         }
+    //     });
+    //     html += "</div>"
+    //     $('#forecast').html(html);
+    // });
+
+$(document).ready(function () {
+    $('#getRecipeBtn').click(function () {
+        const recipe = $('#search-input').val();
+        // get recipt
+        fetchData(recipe);
+    });
+});
