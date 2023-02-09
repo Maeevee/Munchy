@@ -8,20 +8,19 @@
 
 :root{
     --page-color-main: #0a4808;
-    /* --page-color-secondary: #707070; */
+    --page-color-secondary: #e2791e;
     --font-color-main: #fff;
     --hover-color: #f9f8f5;    
 }
 
+
+/* Generale styles */
 body{
     background-image: url(../img/body-background.jpg);
     background-size: cover;
-
-    background-color:#eee;
-    font-family: "Poppins", sans-serif;
+    background-color: #000;
     font-weight: 300;
 }
-/* Generale styles */
 
 h1{
     text-align: center;
@@ -30,8 +29,8 @@ h1{
 /* NavBar */
 header nav.navbar{
     background-color: var(--page-color-main);
-    background: linear-gradient(180deg, rgb(12, 57, 1) 12%, rgb(30, 91, 13) 43%, rgb(59, 116, 33) 89%);
-
+    /* background: linear-gradient(180deg, #0c3901 12%, rgb(30, 91, 13) 43%, #3b7421 89%); */
+    background: linear-gradient(to bottom, #3b7421 5%, #0c3901 100%);
 }
 
 a.navbar-brand{
@@ -55,19 +54,41 @@ button.navbar-toggler{
     border: var(--font-color-main) solid 1px;
 }
 
-/* Input */
-
 /* Main */
 
-@media (min-width: 992px) {
-    #navbarNavAltMarkup{
-        display: flex;
-        justify-content: flex-end;
-    }
+/* MyRecipe button */
+main div.container-fluid div.row div a.myRecipe {
+    height: 50px;
+    width: 220px;
+	background: linear-gradient(to bottom, #ffaf64 5%, #ff6123 100%);
+	background-color: #fa791d;
+	border-radius: 6px;
+	border: 1px solid #ee6e0b;
+	display: inline-block;
+	cursor: pointer;
+	color: #fff;
+	font-family: "Poppins", sans-serif;
+	font-size: 1.3rem;
+	padding: 10px 24px;
+	text-decoration: none;
+    box-shadow: inset 0px 5px 10px 0px rgba(227, 100, 32, 0.5);
 }
 
+main div.container-fluid div.row div a.myRecipe:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 10px 20px 2px rgba(56, 51, 49, 0.25);
+	/* background: linear-gradient(to bottom, #ff6123 5%, #ffaf64 100%);
+	background-color: #ff6123;
+    color: #fff; */
+}
 
-
+main div.container-fluid div.row div a.myRecipe:active {
+    background: linear-gradient(to bottom, #ff6123 5%, #ffaf64 100%);
+	background-color: #ff6123;
+    color: #fff;
+	position: relative;
+	top: 1px;
+}
 
 
 /* Style of search bar */
@@ -77,41 +98,66 @@ button.navbar-toggler{
 }
 
 .search{
-position: relative;
-box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+    position: relative;
+    box-shadow: 0 0 40px rgba(51, 51, 51, .1);
 }
 
 .search input{
-height: 60px;
-text-indent: 25px;
-border: 2px solid #d6d4d4;
+    height: 60px;
+    text-indent: 25px;
+    border: 2px solid #d6d4d4;
 }
 
 
 .search input:focus{
-box-shadow: none;
-border: 2px solid #258232;
+    box-shadow: none;
+    border: 2px solid #258232;
 }
 
 .search .fa-search{
-position: absolute;
-top: 20px;
-left: 16px;
-
+    position: absolute;
+    top: 20px;
+    left: 16px;
 }
 
 .search button{
-position: absolute;
-top: 5px;
-right: 5px;
-height: 50px;
-width: 110px;
-/* background: #258232;
-border-color: #258232; */
-background-color: var(--page-color-main);
-background: linear-gradient(180deg, rgb(12, 57, 1) 12%, rgb(30, 91, 13) 43%, rgb(59, 116, 33) 89%);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 50px;
+    width: 110px;
+    /* background: #258232;
+    border-color: #258232; */
+    background-color: var(--page-color-main);
+    background: linear-gradient(to bottom, #3b7421 5%, #0c3901 100%);
+    /* background: linear-gradient(180deg, rgb(12, 57, 1) 12%, rgb(30, 91, 13) 43%, rgb(59, 116, 33) 89%); */
+    font-family: "Poppins", sans-serif;
+    box-shadow: inset 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
-.search button span:hover{
-    filter: drop-shadow(0px 0px 6px #c6f795);
+.search button:hover{
+    transform: scale(1.03);
+    box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+
+.search button:active{
+    background: linear-gradient(to bottom, #0c3901 5%, #3b7421 100%);
+}
+
+/* Cards */
+
+
+/* Footer */
+
+@media (min-width: 992px) {
+    #navbarNavAltMarkup{
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 465px) {
+    main div.container-fluid div.row div a.myRecipe {
+        width: 95%;
+    }
 }
