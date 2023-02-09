@@ -103,14 +103,15 @@ function getRecipe() {
       var cardBody = $("<div>");
       var recipeImg = $("<img>");
       var cardTitle = $("<h3>");
-      var cardID = $("#response.results.id");
+      var cardId = $("#response.results[i].id");
 
       cardTitle.text(response.results[i].title);
-      recipeImg.src(response.results[i].image);
+      recipeImg.attr('src', response.results[i].image);
 
       cardBody.append(cardTitle);
       cardBody.append(recipeImg);
       cardDiv.append(cardBody);
+      
     }
   });
 }
