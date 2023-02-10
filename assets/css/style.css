@@ -16,9 +16,9 @@
 
 /* Generale styles */
 body{
-    background-image: url(../img/body-background.jpg);
-    background-size: cover;
-    background-color: #000;
+    /* background: url(../img/body-background.jpg), #000;
+    background-size: contain;
+    background-repeat: no-repeat; */
     font-weight: 300;
 }
 
@@ -55,6 +55,16 @@ button.navbar-toggler{
 }
 
 /* Main */
+div.backgroundImage {
+    background-image: linear-gradient(
+            to bottom,
+            transparent,
+            black),
+        url(../img/body-background.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+}
 
 /* MyRecipe button */
 main div.container-fluid div.row div a.myRecipe {
@@ -94,7 +104,7 @@ main div.container-fluid div.row div a.myRecipe:active {
 /* Style of search bar */
 
 .height{
-    height: 100vh;
+    min-height: 80vh;
 }
 
 .search{
@@ -145,10 +155,18 @@ main div.container-fluid div.row div a.myRecipe:active {
 }
 
 /* Cards */
-
+div.cards {
+    background-color: black;
+    color: white;
+    padding-bottom: 20px;
+}
 
 /* Footer */
+footer {
+    background: linear-gradient(to bottom, #1c3710 5%, #061b01 100%);
+}
 
+/* Media queries */
 @media (min-width: 992px) {
     #navbarNavAltMarkup{
         display: flex;
