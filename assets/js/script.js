@@ -56,7 +56,7 @@ $.ajax({
 
 });
 
-
+/*
 $(document).ready(function () {
     // get user input when the get recipe button clicked
     $('#getRecipeBtn').click(function () {
@@ -70,3 +70,57 @@ $(document).ready(function () {
 function getRecipe(recipe){
 
 }
+*/
+
+
+$(".getRecipeBtn").on("click", function (event) {
+  event.preventDefault();
+
+  query = $("#search-input").val().trim();
+
+  console.log(query);
+
+  getRecipe();
+});
+
+function getRecipe() {
+  var queryUrl =
+    "https://api.spoonacular.com/recipes/complexSearch?query=" +
+    query +
+    "&apiKey=6f5b740887744617a3980e15981b89e9";
+
+  $.ajax({
+    url: queryUrl,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+
+    // display data to html
+
+    for (let i = 0; i < response.results.length; i++) {
+      console.log(response.results[i]);
+
+      var cardDiv = $("<div>");
+      var cardBody = $("<div>");
+      var recipeImg = $("<img>");
+      var cardTitle = $("<h3>");
+      var cardId = $("#response.results[i].id");
+
+
+      cardTitle.text(response.results[i].title);
+      recipeImg.attr('src', response.results[i].image);
+
+      console.log(response.results[i].title)
+      console.log( response.results[i].image)
+
+      cardBody.append(cardTitle);
+      cardBody.append(recipeImg);
+      cardDiv.append(cardBody);
+      $('#cardContainer').append(cardDiv)
+      
+    }
+  });
+}
+
+// get recipe information using id from get recipe
+//var recipeUrl = 'https://api.spoonacular.com/recipes/' + recipeID + '/information&apiKey=6f5b740887744617a3980e15981b89e9'
