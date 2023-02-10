@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 
 * {
     margin: 0;
@@ -7,7 +7,7 @@
 }
 
 :root{
-    --page-color-main: #0a4808;
+    --page-color-main: #042303;
     --page-color-secondary: #e2791e;
     --font-color-main: #fff;
     --hover-color: #f9f8f5;    
