@@ -47,7 +47,7 @@ $.ajax({
 var spoonUrl =
   "https://api.spoonacular.com/food/products/search?query=" +
   query /* + query1 + query2 + query3 + query4 + query5  */ +
-  "&apiKey=6f5b740887744617a3980e15981b89e9";
+  "&apiKey=2caf6208f2e74e4495674d28e9717f84";
 
 $.ajax({
   url: spoonUrl,
@@ -86,7 +86,7 @@ function getRecipe() {
   var queryUrl =
     "https://api.spoonacular.com/recipes/complexSearch?query=" +
     query +
-    "&apiKey=6f5b740887744617a3980e15981b89e9";
+    "&apiKey=2caf6208f2e74e4495674d28e9717f84";
 
   $.ajax({
     url: queryUrl,
@@ -105,6 +105,7 @@ function getRecipe() {
       var cardTitle = $("<h3>");
       var cardId = $("#response.results[i].id");
       var cardStyle = $(".cardStyle");
+      
 
       cardTitle.text(response.results[i].title);
       recipeImg.attr("src", response.results[i].image);
@@ -112,10 +113,18 @@ function getRecipe() {
       console.log(response.results[i].title);
       console.log(response.results[i].image);
 
-      cardBody.append(cardTitle);
       cardBody.append(recipeImg);
+      cardBody.append(cardTitle);
       cardDiv.append(cardBody);
       $("#cardContainer").append(cardDiv);
+
+
+
+      // Cards
+      cardDiv.addClass("col");
+      cardBody.addClass("card h-100 text-dark bg-light mb-3");
+      recipeImg.addClass("card-img-top p-4");
+      cardTitle.addClass("card-title m-4");
     }
   });
 }
