@@ -151,6 +151,8 @@ function getRecipe() {
         cardIconButton.addClass("iconButton");
         cardIcon.addClass("las la-heart");
 
+        cardIconButton.attr("href", "#");
+
         
     }
   });
