@@ -106,6 +106,9 @@ function getRecipe() {
       var cardId = $("#response.results[i].id");
       var cardStyle = $(".cardStyle");
 
+      console.log(cardId)
+      console.log(cardStyle)
+
       cardTitle.text(response.results[i].title);
       recipeImg.attr("src", response.results[i].image);
 
@@ -123,4 +126,5 @@ function getRecipe() {
 // get recipe information using id from get recipe
 //var recipeUrl = 'https://api.spoonacular.com/recipes/' + recipeID + '/information&apiKey=6f5b740887744617a3980e15981b89e9'
 
+/* comment */
 /* comment */
