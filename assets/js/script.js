@@ -47,7 +47,7 @@ $.ajax({
 var spoonUrl =
   "https://api.spoonacular.com/food/products/search?query=" +
   query /* + query1 + query2 + query3 + query4 + query5  */ +
-  "&apiKey=2caf6208f2e74e4495674d28e9717f84";
+  "&apiKey=9c88fb14be5b4d66addb8409a32751dc";
 
 $.ajax({
   url: spoonUrl,
@@ -86,7 +86,7 @@ function getRecipe() {
   var queryUrl =
     "https://api.spoonacular.com/recipes/complexSearch?query=" +
     query +
-    "&apiKey=2caf6208f2e74e4495674d28e9717f84";
+    "&apiKey=9c88fb14be5b4d66addb8409a32751dc";
 
   $.ajax({
     url: queryUrl,
@@ -99,13 +99,25 @@ function getRecipe() {
     for (let i = 0; i < response.results.length; i++) {
       console.log(response.results[i]);
 
+      //Creating extra wrap element and icon for cards
+
+      // var cardDiv = $("<div>");
+      // var cardBody = $("<div>");
+      // var recipeImg = $("<img>");
+      // var cardTitle = $("<h3>");
+      // var cardId = $("#response.results[i].id");
+      // var cardStyle = $(".cardStyle");
+
       var cardDiv = $("<div>");
       var cardBody = $("<div>");
       var recipeImg = $("<img>");
+      var cardTextContainer = $("<div>");
       var cardTitle = $("<h3>");
+      var cardIconButton = $("<a>");
+      var cardIcon = $("<i>");
       var cardId = $("#response.results[i].id");
       var cardStyle = $(".cardStyle");
-      
+      //--------------------------------------------
 
       cardTitle.text(response.results[i].title);
       recipeImg.attr("src", response.results[i].image);
@@ -113,18 +125,35 @@ function getRecipe() {
       console.log(response.results[i].title);
       console.log(response.results[i].image);
 
+      // cardBody.append(cardTitle);
+      // cardBody.append(recipeImg);
+      // cardDiv.append(cardBody);
+      // $("#cardContainer").append(cardDiv);
+
       cardBody.append(recipeImg);
-      cardBody.append(cardTitle);
+      cardBody.append(cardTextContainer);
+      cardTextContainer.append(cardTitle);
+      cardTextContainer.append(cardIconButton);
+      cardIconButton.append(cardIcon);
       cardDiv.append(cardBody);
       $("#cardContainer").append(cardDiv);
-
-
+      //--------------------------------------------
 
       // Cards
-      cardDiv.addClass("col");
-      cardBody.addClass("card h-100 text-dark bg-light mb-3");
-      recipeImg.addClass("card-img-top p-4");
-      cardTitle.addClass("card-title m-4");
+        
+        //Creating cards
+        cardDiv.addClass("col");
+        cardBody.addClass("card h-100 text-dark bg-light mb-3");
+        recipeImg.addClass("card-img-top p-4");
+        cardTitle.addClass("card-title m-2");
+        //Create heart icon
+        cardTextContainer.addClass("card-body d-flex flex-row justify-content-between");
+        cardIconButton.addClass("iconButton");
+        cardIcon.addClass("las la-heart");
+
+        cardIconButton.attr("href", "#");
+
+        
     }
   });
 }
