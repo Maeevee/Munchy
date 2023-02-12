@@ -99,13 +99,25 @@ function getRecipe() {
     for (let i = 0; i < response.results.length; i++) {
       console.log(response.results[i]);
 
+      //Creating extra wrap element and icon for cards
+
+      // var cardDiv = $("<div>");
+      // var cardBody = $("<div>");
+      // var recipeImg = $("<img>");
+      // var cardTitle = $("<h3>");
+      // var cardId = $("#response.results[i].id");
+      // var cardStyle = $(".cardStyle");
+
       var cardDiv = $("<div>");
       var cardBody = $("<div>");
       var recipeImg = $("<img>");
+      var cardTextContainer = $("<div>");
       var cardTitle = $("<h3>");
+      var cardIconButton = $("<a>");
+      var cardIcon = $("<i>");
       var cardId = $("#response.results[i].id");
       var cardStyle = $(".cardStyle");
-      
+      //--------------------------------------------
 
       cardTitle.text(response.results[i].title);
       recipeImg.attr("src", response.results[i].image);
