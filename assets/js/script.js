@@ -47,7 +47,7 @@ $.ajax({
 var spoonUrl =
   "https://api.spoonacular.com/food/products/search?query=" +
   query /* + query1 + query2 + query3 + query4 + query5  */ +
-  "&apiKey=2caf6208f2e74e4495674d28e9717f84";
+  "&apiKey=9c88fb14be5b4d66addb8409a32751dc";
 
 $.ajax({
   url: spoonUrl,
@@ -86,7 +86,7 @@ function getRecipe() {
   var queryUrl =
     "https://api.spoonacular.com/recipes/complexSearch?query=" +
     query +
-    "&apiKey=2caf6208f2e74e4495674d28e9717f84";
+    "&apiKey=9c88fb14be5b4d66addb8409a32751dc";
 
   $.ajax({
     url: queryUrl,
@@ -121,10 +121,12 @@ function getRecipe() {
 
 
       // Cards
-      cardDiv.addClass("col");
-      cardBody.addClass("card h-100 text-dark bg-light mb-3");
-      recipeImg.addClass("card-img-top p-4");
-      cardTitle.addClass("card-title m-4");
+        
+        //Creating cards
+        cardDiv.addClass("col");
+        cardBody.addClass("card h-100 text-dark bg-light mb-3");
+        recipeImg.addClass("card-img-top p-4");
+        cardTitle.addClass("card-title m-2");
     }
   });
 }
