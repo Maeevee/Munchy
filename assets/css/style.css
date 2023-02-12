@@ -1,4 +1,4 @@
- /* @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
 
 * {
     margin: 0;
@@ -166,10 +166,20 @@ div.cards {
     font-size: 1.5rem;
 }
 
-/* Footer */
-footer {
-    background: linear-gradient(to bottom, #1c3710 5%, #061b01 100%);
+/* Heart */
+
+.las.la-heart {
+    font-size: 40px;
+    color: #a9a9a9;
 }
+
+.las.la-heart:hover {
+    color: #ff0000;
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+/* Footer */
 
 /* Media queries */
 @media (min-width: 992px) {
