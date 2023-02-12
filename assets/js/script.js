@@ -146,6 +146,12 @@ function getRecipe() {
         cardBody.addClass("card h-100 text-dark bg-light mb-3");
         recipeImg.addClass("card-img-top p-4");
         cardTitle.addClass("card-title m-2");
+        //Create heart icon
+        cardTextContainer.addClass("card-body d-flex flex-row justify-content-between");
+        cardIconButton.addClass("iconButton");
+        cardIcon.addClass("las la-heart");
+
+        
     }
   });
 }
