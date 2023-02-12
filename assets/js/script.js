@@ -125,12 +125,19 @@ function getRecipe() {
       console.log(response.results[i].title);
       console.log(response.results[i].image);
 
+      // cardBody.append(cardTitle);
+      // cardBody.append(recipeImg);
+      // cardDiv.append(cardBody);
+      // $("#cardContainer").append(cardDiv);
+
       cardBody.append(recipeImg);
-      cardBody.append(cardTitle);
+      cardBody.append(cardTextContainer);
+      cardTextContainer.append(cardTitle);
+      cardTextContainer.append(cardIconButton);
+      cardIconButton.append(cardIcon);
       cardDiv.append(cardBody);
       $("#cardContainer").append(cardDiv);
-
-
+      //--------------------------------------------
 
       // Cards
         
