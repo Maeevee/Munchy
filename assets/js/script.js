@@ -73,11 +73,19 @@ $(document).ready(function () {
     });
 });
 
+
+
+
 //function for fetching recipe api
 function getRecipe(recipe){
 
 }
 */
+// store recipe ids LMB
+let recipeId = [];
+
+
+
 
 $(".getRecipeBtn").on("click", function (event) {
   event.preventDefault();
@@ -115,15 +123,23 @@ function getRecipe() {
       // var cardId = $("#response.results[i].id");
       // var cardStyle = $(".cardStyle");
 
+     
+      recipeId = response.results[i].id;
+
+     
+      console.log(recipeId); 
+
       var cardDiv = $("<div>");
       var cardBody = $("<div>");
+
+      
       var recipeImg = $("<img>");
       var cardTextContainer = $("<div>");
       var cardTitle = $("<h3>");
       var cardIconButton = $("<a>");
       var cardIcon = $("<i>");
       var cardModalButton = $("<a>")
-       //cardId = $("#response.results[i].id");
+      // var cardId = $("#recipeId");
       var cardStyle = $(".cardStyle");
       //--------------------------------------------
 
@@ -141,7 +157,7 @@ function getRecipe() {
       // cardBody.append(recipeImg);
       // cardDiv.append(cardBody);
       // $("#cardContainer").append(cardDiv);
-      
+    //  cardBody.append(cardId)
       cardBody.append(recipeImg);
       cardBody.append(cardTextContainer);
       cardTextContainer.append(cardTitle);
@@ -155,10 +171,10 @@ function getRecipe() {
       // Cards
         
         //Creating cards
-        cardDiv.addClass("col cardModal");
+        cardDiv.addClass("col ");
         cardBody.addClass("card h-100 text-dark bg-light mb-3");
-        recipeImg.addClass("card-img-top p-4");
-        cardTitle.addClass("card-title m-2");
+        recipeImg.addClass("card-img-top p-4 cardModal");
+        cardTitle.addClass("card-title m-2 cardModal");
         //Create heart icon
         cardTextContainer.addClass("card-body d-flex flex-row justify-content-between");
         cardIconButton.addClass("iconButton");
@@ -167,23 +183,70 @@ function getRecipe() {
         cardIconButton.attr("href", "#");
 
 
-        /* card event listener */
+        //Modal attrs
+        cardTitle.attr("href", "#recipeModal");
+        cardTitle.attr("rel", "modal:open");
+         recipeImg.attr("href", "#recipeModal");
+        recipeImg.attr("rel", "modal:open"); 
 
-      $(".cardModal").on('click', function(event) {
-        event.preventDefault()
+        
+/* card event listener */
 
-         // <a href="#recipeModal" rel="modal:open"></a> link to open modal needs incorporating
+$(".cardModal").on('click', function(event) {
+  event.preventDefault()
 
-      });
+    // Create the modal window dynamically
+let modal = $("<div>", {
+id: "recipeModal",
+class: "modal",
+html: '<p>Modal content goes here </p> <a href="#" id="closeModal" rel="modal:close">Close</a>'
+});
+
+     // Append the modal to the body of the document
+$("body").append(modal);
+// Open the modal window
+$("#recipeModal").modal();
+// Close modal event listener
+$("#closeModal").on('click', function(event) {
+  event.preventDefault();
+  $("#recipeModal").modal("close");
+});
+
+   // <a href="#recipeModal" rel="modal:open"></a> link to open modal needs incorporating
+
+});
 
 
       // cardDiv.addClass('id','cardId')
 
         // 
     }
+
+   getRecipeUrl()
   });
 }
 
+
+/* Functions get recipie URL */
+function getRecipeUrl() {
+var queryUrl =
+"https://api.spoonacular.com/recipes/" +
+recipeId +
+"/information?&apiKey=6f5b740887744617a3980e15981b89e9";
+
+$.ajax({
+url: queryUrl,
+method: "GET",
+}).then(function (response) {
+console.log(response);
+
+// display data to html
+
+/* for (let i = 0; i < response.results.length; i++) {
+  console.log(response.results[i]); */
+
+})
+}
 
 // get recipe information using id from get recipe
 //var recipeUrl = 'https://api.spoonacular.com/recipes/' + recipeID + '/information&apiKey=6f5b740887744617a3980e15981b89e9'
