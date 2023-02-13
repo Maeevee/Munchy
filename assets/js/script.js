@@ -94,7 +94,7 @@ function getRecipe() {
   var queryUrl =
     "https://api.spoonacular.com/recipes/complexSearch?query=" +
     query +
-    "&apiKey=9c88fb14be5b4d66addb8409a32751dc";
+    "&apiKey=10792371edf64bb5a7cade783da745a0";
 
   $.ajax({
     url: queryUrl,
@@ -159,11 +159,17 @@ function getRecipe() {
         cardIconButton.addClass("iconButton");
         cardIcon.addClass("las la-heart");
 
-        cardIconButton.attr("href", "#");
+        cardIcon.attr("id", response.results[i].id);
+        cardIconButton.attr("onClick", "addToFavourite("+ response.results[i].id +")");
 
         
     }
   });
+}
+
+function addToFavourite(id){
+  console.log("added {} to favourite", id)
+  $("#" + id).toggleClass("favourite");
 }
 
 // get recipe information using id from get recipe
