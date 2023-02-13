@@ -180,12 +180,28 @@ div.cards {
 }
 
 /* Footer */
+footer .container .creators a {
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+footer div.creators p a.text-secondary.fst-italic {
+    transition: 0.5s;
+}
+
+footer div.container section div.row div.creators p a.text-secondary.fst-italic:hover {
+    color: white!important;
+}
 
 /* Media queries */
 @media (min-width: 992px) {
     #navbarNavAltMarkup{
         display: flex;
         justify-content: flex-end;
+    }
+
+    footer div.container section div.row div.aboutSection {
+        padding-right: 70px;
     }
 }
 
