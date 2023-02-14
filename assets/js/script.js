@@ -5,7 +5,6 @@ It is just for reference -LMB
 _______________________________________________________________________________________________________________
 ----------------------------------------------------------------------------------------------------------------*/
 
-
 // https://rapidapi.com/apininjas/api/recipe-by-api-ninjas/ API for recipies
 // https://rapidapi.com/OthmaneDch/api/unsplash-data API for pictures
 
@@ -52,7 +51,7 @@ $.ajax({
 //testing spoonacular
 // can confirm returns results to console and accepts 3-4 ingredients before returning minimal responses LMB
 
- /* var spoonUrl =
+/* var spoonUrl =
   "https://api.spoonacular.com/food/products/search?query=" +
   query  +
   "&apiKey=6f5b740887744617a3980e15981b89e9"; */
@@ -69,7 +68,7 @@ $(document).ready(function () {
     $('#getRecipeBtn').click(function () {
         const recipe = $('#search-input').val();
         // get recipe
-        getRecipe(recipe);
+          getRecipe(recipe);
     });
 });
 
@@ -82,10 +81,7 @@ function getRecipe(recipe){
 }
 */
 // store recipe ids LMB
-let recipeId = [];
-
-
-
+// let recipeIds = [];
 
 $(".getRecipeBtn").on("click", function (event) {
   event.preventDefault();
@@ -123,77 +119,93 @@ function getRecipe() {
       // var cardId = $("#response.results[i].id");
       // var cardStyle = $(".cardStyle");
 
-     
-      recipeId = response.results[i].id;
+      var recipeId = response.results[i].id;
+      var queryUrl2 =
+        "https://api.spoonacular.com/recipes/" +
+        recipeId +
+        "/information?&apiKey=6f5b740887744617a3980e15981b89e9";
 
-     
-      console.log(recipeId); 
+      $.ajax({
+        url: queryUrl2,
+        method: "GET",
+      }).then(function (response1) {
+        console.log(response1);
 
-      var cardDiv = $("<div>");
-      var cardBody = $("<div>");
+        console.log(recipeId);
+        console.log(typeof recipeId);
 
-      
-      var recipeImg = $("<img>");
-      var cardTextContainer = $("<div>");
-      var cardTitle = $("<h3>");
-      var cardIconButton = $("<a>");
-      var cardIcon = $("<i>");
-      var cardModalButton = $("<a>")
-      // var cardId = $("#recipeId");
-      var cardStyle = $(".cardStyle");
-      //--------------------------------------------
+        // display data to html
 
-      /* console.log(cardId) */
-      console.log(cardStyle)
+        var recipeUrl = $("<a>");
 
-      cardTitle.text(response.results[i].title);
-      recipeImg.attr("src", response.results[i].image);
-      cardModalButton.attr('href', "#recipeModal", rel="modal:open" );
+        recipeUrl.text(response1.sourceUrl);
+        recipeUrl.attr("href", response1.sourceUrl);
 
-      console.log(response.results[i].title);
-      console.log(response.results[i].image);
+        var cardDiv = $("<div>");
+        var cardBody = $("<div>");
 
-      // cardBody.append(cardTitle);
-      // cardBody.append(recipeImg);
-      // cardDiv.append(cardBody);
-      // $("#cardContainer").append(cardDiv);
-    //  cardBody.append(cardId)
-      cardBody.append(recipeImg);
-      cardBody.append(cardTextContainer);
-      cardTextContainer.append(cardTitle);
-      cardTextContainer.append(cardIconButton);
-      cardIconButton.append(cardIcon);
-      cardDiv.append(cardBody);
-      cardBody.append(cardModalButton)
-      $("#cardContainer").append(cardDiv);
-      //--------------------------------------------
+        var recipeImg = $("<img>");
+        var cardTextContainer = $("<div>");
+        var cardTitle = $("<h3>");
+        var cardIconButton = $("<a>");
+        var cardIcon = $("<i>");
+        var cardModalButton = $("<a>");
+        // var cardId = $('id:' + "recipeId");
+        var cardStyle = $(".cardStyle");
+        //--------------------------------------------
 
-      // Cards
-        
+        /* console.log(cardId) */
+        console.log(cardStyle);
+        // console.log(cardId)
+
+        cardTitle.text(response.results[i].title);
+        recipeImg.attr("src", response.results[i].image);
+        cardModalButton.attr("href", "#recipeModal", (rel = "modal:open"));
+
+        console.log(response.results[i].title);
+        console.log(response.results[i].image);
+
+        cardBody.append(recipeImg);
+        cardBody.append(cardTextContainer);
+        cardBody.append(recipeUrl);
+        cardTextContainer.append(cardTitle);
+        cardTextContainer.append(cardIconButton);
+        cardIconButton.append(cardIcon);
+        cardDiv.append(cardBody);
+        cardBody.append(cardModalButton);
+        $("#cardContainer").append(cardDiv);
+        //--------------------------------------------
+
+        // Cards
+
         //Creating cards
         cardDiv.addClass("col ");
         cardBody.addClass("card h-100 text-dark bg-light mb-3");
         recipeImg.addClass("card-img-top p-4 cardModal");
         cardTitle.addClass("card-title m-2 cardModal");
         //Create heart icon
-        cardTextContainer.addClass("card-body d-flex flex-row justify-content-between");
+        cardTextContainer.addClass(
+          "card-body d-flex flex-row justify-content-between"
+        );
         cardIconButton.addClass("iconButton");
         cardIcon.addClass("las la-heart");
 
         cardIconButton.attr("href", "#");
+      });
+      // recipeIds.unshift(recipeId);
 
+      // console.log(recipeIds)
 
-        //Modal attrs
-        cardTitle.attr("href", "#recipeModal");
-        cardTitle.attr("rel", "modal:open");
-         recipeImg.attr("href", "#recipeModal");
-        recipeImg.attr("rel", "modal:open"); 
+      //Modal attrs
+      // cardTitle.attr("href", "#recipeModal");
+      // cardTitle.attr("rel", "modal:open");
+      //  recipeImg.attr("href", "#recipeModal");
+      // recipeImg.attr("rel", "modal:open");
 
-        
-/* card event listener */
+      /* card event listener */
 
-$(".cardModal").on('click', function(event) {
-  event.preventDefault()
+      /* $(".cardModal").on('click', function(event) {
+
 
     // Create the modal window dynamically
 let modal = $("<div>", {
@@ -212,45 +224,14 @@ $("#closeModal").on('click', function(event) {
   $("#recipeModal").modal("close");
 });
 
-   // <a href="#recipeModal" rel="modal:open"></a> link to open modal needs incorporating
-
-});
-
+}); */
 
       // cardDiv.addClass('id','cardId')
 
-        // 
+      //
     }
-
-   getRecipeUrl()
   });
-}
-
-
-/* Functions get recipie URL */
-function getRecipeUrl() {
-var queryUrl =
-"https://api.spoonacular.com/recipes/" +
-recipeId +
-"/information?&apiKey=6f5b740887744617a3980e15981b89e9";
-
-$.ajax({
-url: queryUrl,
-method: "GET",
-}).then(function (response) {
-console.log(response);
-
-// display data to html
-
-/* for (let i = 0; i < response.results.length; i++) {
-  console.log(response.results[i]); */
-
-})
 }
 
 // get recipe information using id from get recipe
 //var recipeUrl = 'https://api.spoonacular.com/recipes/' + recipeID + '/information&apiKey=6f5b740887744617a3980e15981b89e9'
-
-/* comment */
-/* comment */
-
