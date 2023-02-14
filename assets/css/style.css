@@ -223,6 +223,14 @@ div.row div a.getRecipeBtnMyRecipe {
 	background-color: #ff6123;
     color: #fff; */
 }
+
+.getRecipeBtnMyRecipe:active {
+    background: linear-gradient(to bottom, #0c3901 5%, #3b7421 100%);
+	background-color: #3ab515;
+	position: relative;
+	top: 1px;
+}
+
 /* Media queries */
 @media (min-width: 992px) {
     #navbarNavAltMarkup{
