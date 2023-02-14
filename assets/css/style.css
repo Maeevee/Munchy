@@ -239,6 +239,10 @@ div.row div a.getRecipeBtnMyRecipe {
     content: "🥑";
 }
 
+.MyRecipesSavedArrow {
+    transform: rotate(90deg);
+}
+
 /* Media queries */
 @media (min-width: 992px) {
     #navbarNavAltMarkup{
