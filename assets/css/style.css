@@ -231,6 +231,14 @@ div.row div a.getRecipeBtnMyRecipe {
 	top: 1px;
 }
 
+.MyRecipesSaved {
+    font-family: "Poppins", sans-serif;
+}
+
+.MyRecipesSaved::after {
+    content: "🥑";
+}
+
 /* Media queries */
 @media (min-width: 992px) {
     #navbarNavAltMarkup{
