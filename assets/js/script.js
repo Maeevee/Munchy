@@ -54,7 +54,7 @@ function getRecipe() {
         var recipeImg = $("<img>");
         var cardTextContainer = $("<div>");
         var cardTitle = $("<h3>");
-        var cardIconButton = $("<a>");
+        var cardIconButton = $("<div>");
         var cardIcon = $("<i>");
 
         // var cardStyle = $(".cardStyle");
@@ -96,7 +96,7 @@ function getRecipe() {
         cardIcon.addClass("las la-heart");
 
         cardIcon.attr("id", response.results[i].id);
-        cardIconButton.attr(
+        cardIcon.attr(
           "onClick",
           "addToFavourite(" + response.results[i].id + ")"
         );
