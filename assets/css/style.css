@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
     margin: 0;
@@ -135,7 +135,7 @@ main div.container-fluid div.row div a.myRecipe:active {
     top: 5px;
     right: 5px;
     height: 50px;
-    width: 110px;
+    /* width: 110px; */
     /* background: #258232;
     border-color: #258232; */
     background-color: var(--page-color-main);
