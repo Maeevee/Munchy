@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+
+    <title>Munchy</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container-fluid align-text-top d-flex justify-content-center ">
+                <a class="navbar-brand" href="#">
+                    <h1>Munchy</h1></a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- Get Recipe button -->
+        <div class="backgroundImage">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4 ml-3">
+                        <a class="getRecipeBtnMyRecipe btn btn-lg mt-3 mx-2" href="./index.html" role="button">Get recipes</a>
+                    </div>
+                </div>
+            </div>
+        <!-- Recipe cards -->
+        <div class="cards container-fluid px-5">
+            <div  id="cardContainer" class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mx-5 py-5"></div>
+        </div>
+    </main>
+    <footer class="text-center text-lg-start text-secondary" style="background-color: #000000;">
+        <div class="container p-4 pb-0">
+            <section class="">
+                <div class="row">
+                    <div class="aboutSection col-sm-12 col-md-6 col-lg-7 col-xl-8 mx-auto mt-3">
+                        <h6 class="text-uppercase text-secondary mb-4 font-weight-bold">
+                            About
+                        </h6>
+                        <p class="text-secondary">
+                            Munchy is the ultimate recipe app created by a team of passionate foodies, developers, and designers. The app offers a vast collection of recipes from around the world. Our mission is to provide a simple, yet
+                            powerful platform where users can discover new and delicious recipes and store their favorite dishes. The app is designed with ease-of-use in mind and is perfect for both experienced chefs and beginners. We
+                            believe that cooking is more than just preparing food; it's about creating memories and connecting with loved ones. The team is committed to making Munchy the go-to source for all your cooking needs.
+                        </p>
+                    </div>
+                    <hr class="w-100 clearfix d-md-none" />
+                    <div class="creators col-sm-6 col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase text-secondary mb-4 font-weight-bold">
+                            Creators
+                        </h6>
+                        <p>
+                            <a href="https://github.com/laurencemb" class="text-secondary fst-italic">- @laurencemb</a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/Maeevee" class="text-secondary fst-italic">- @Maeevee</a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/laurabbity915" class="text-secondary fst-italic">- @laurabbity915</a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/ammocodes" class="text-secondary fst-italic">- @ammocodes</a>
+                        </p>
+                    </div>
+                    <hr class="w-100 clearfix d-md-none" />
+                    <div class="col-sm-6 col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                        <h6 class="text-uppercase text-secondary mb-4 font-weight-bold">Contact</h6>
+                        <p class="text-secondary"><i class="fas fa-home text-secondary mr-3"></i> 67 High Street, London, W1 5LQ</p>
+                        <p class="text-secondary"><i class="fas fa-envelope text-secondary mr-3"></i> info@gmail.com</p>
+                        <p class="text-secondary"><i class="fas fa-phone text-secondary mr-3"></i> + 44 20 7123 4567</p>
+                        <p class="text-secondary"><i class="fas fa-print text-secondary mr-3"></i> + 44 20 7123 4568</p>
+                    </div>
+                </div>
+            </section>
+            <hr class="my-3" />
+            <section class="p-3 pt-0">
+                <div class="row d-flex align-items-center">
+                    <div class="col-md-7 col-lg-8 text-center text-md-start">
+                        <div class="p-3">
+                            <p class="text-secondary">© 2020 Copyright: HighHope</p>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+                        <a class="btn btn-outline-light btn-floating m-1" class="text-secondary" role="button"><i class="fab fa-facebook-f text-secondary"></i></a>
+                        <a class="btn btn-outline-light btn-floating m-1" class="text-secondary" role="button"><i class="fab fa-twitter text-secondary"></i></a>
+                        <a class="btn btn-outline-light btn-floating m-1" class="text-secondary" role="button"><i class="fab fa-google text-secondary"></i></a>
+                        <a class="btn btn-outline-light btn-floating m-1" class="text-secondary" role="button"><i class="fab fa-instagram text-secondary"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </footer>
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
