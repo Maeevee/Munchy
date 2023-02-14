@@ -197,6 +197,25 @@ footer div.container section div.row div.creators p a.text-secondary.fst-italic:
     color: white!important;
 }
 
+/* MyRecipe page */
+
+div.row div a.getRecipeBtnMyRecipe {
+    height: 50px;
+    width: 220px;
+	background: linear-gradient(to bottom, #3b7421 5%, #0c3901 100%);
+	background-color: #297c10;
+	border-radius: 6px;
+	border: 1px solid #0a5205;
+	display: inline-block;
+	cursor: pointer;
+	color: rgb(255, 255, 255);
+	font-family: "Poppins", sans-serif;
+	font-size: 1.3rem;
+	padding: 10px 24px;
+	text-decoration: none;
+    box-shadow: inset 0px 5px 10px 0px rgba(51, 227, 32, 0.5);
+}
+
 /* Media queries */
 @media (min-width: 992px) {
     #navbarNavAltMarkup{
