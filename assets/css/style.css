@@ -84,7 +84,7 @@ main div.container-fluid div.row div a.myRecipe {
     box-shadow: inset 0px 5px 10px 0px rgba(227, 100, 32, 0.5);
 }
 
-main div.container-fluid div.row div a.myRecipe:hover, main div.cards div#cardContainer div.col div.card a.viewRecipeBtn:hover {
+main div.container-fluid div.row div a.myRecipe:hover, main div.cards div div.col div.card a.viewRecipeBtn:hover {
     transform: scale(1.03);
     box-shadow: 0px 10px 20px 2px rgba(56, 51, 49, 0.25);
 	/* background: linear-gradient(to bottom, #ff6123 5%, #ffaf64 100%);
@@ -92,7 +92,7 @@ main div.container-fluid div.row div a.myRecipe:hover, main div.cards div#cardCo
     color: #fff; */
 }
 
-main div.container-fluid div.row div a.myRecipe:active, main div.cards div#cardContainer div.col div.card a.viewRecipeBtn:active {
+main div.container-fluid div.row div a.myRecipe:active, main div.cards div div.col div.card a.viewRecipeBtn:active {
     background: linear-gradient(to bottom, #ff6123 5%, #ffaf64 100%);
 	background-color: #ff6123;
     color: #fff;
@@ -180,12 +180,12 @@ div.cards {
 }
 
 .favourite{
-   color: #ff0000 !important;
+    color: #ff0000 !important;
 }
 
 /* viewRecipeBtn */
 
-main div.cards div#cardContainer div.col div.card a.viewRecipeBtn {
+main div.cards div div.col div.card a.viewRecipeBtn {
 	background: linear-gradient(to bottom, #ffaf64 5%, #ff6123 100%);
 	background-color: #fa791d;
 	border-radius: 6px;
@@ -204,6 +204,7 @@ main div.cards div#cardContainer div.col div.card a.viewRecipeBtn {
 footer .container .creators a {
     text-decoration: none;
     font-family: "Poppins", sans-serif;
+    width: 100px;
 }
 
 footer div.creators p a.text-secondary.fst-italic {
@@ -260,6 +261,11 @@ div.row div a.getRecipeBtnMyRecipe {
     transform: rotate(90deg);
 }
 
+div.card-body div.iconButton i.savedBtn {
+    color: #ff0000;
+    font-size: 40px;
+}
+
 /* Media queries */
 @media (min-width: 992px) {
     #navbarNavAltMarkup{
@@ -273,7 +279,7 @@ div.row div a.getRecipeBtnMyRecipe {
 }
 
 @media (max-width: 465px) {
-    main div.container-fluid div.row div a.myRecipe {
+    main div.container-fluid div.row div a.myRecipe, div.row div a.getRecipeBtnMyRecipe {
         width: 95%;
     }
 }
