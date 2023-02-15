@@ -70,7 +70,6 @@ function getRecipe() {
 
         cardTitle.text(response.results[i].title);
         recipeImg.attr("src", response.results[i].image);
-        recipeImg.attr("onClick", "changePage(" + response.results[i].id + ")");
 
         cardTitle.text(response.results[i].title);
         recipeImg.attr("src", response.results[i].image);
@@ -145,8 +144,4 @@ function getFromStorage(key) {
 // function for saving local storage value
 function saveToStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
-}
-
-function changePage(id){
-  location.href = "./my-recipes.html?id=" + id;
 }
