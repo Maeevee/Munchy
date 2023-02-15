@@ -104,7 +104,7 @@ function getRecipe() {
         cardIcon.addClass("las la-heart");
 
         cardIcon.attr("id", response.results[i].id);
-        if(favouriteMap != null && favouriteMap.get(response.results[i].id) != null){
+        if(favouriteMap != null && favouriteMap.get(response.results[i].id.toString()) != null){
           cardIcon.addClass('favourite');
         }
         cardIcon.attr(
@@ -125,7 +125,7 @@ function addToFavourite(id) {
   }
   
   favouriteMap.set(id, id);
-  saveToStorage('favourite', favouriteMap);
+  saveToStorage('favourite', Object.fromEntries(favouriteMap));
 }
 
 // function for geting local storage value
