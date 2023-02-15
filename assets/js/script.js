@@ -1,3 +1,5 @@
+const apiKey = "e0e319394f344c14a741c1bf1fee33e5";
+
 $(".getRecipeBtn").on("click", function (event) {
   event.preventDefault();
 
@@ -12,7 +14,13 @@ function getRecipe() {
   var queryUrl =
     "https://api.spoonacular.com/recipes/complexSearch?query=" +
     query +
-    "&apiKey=6f5b740887744617a3980e15981b89e9";
+    "&apiKey=" + apiKey;
+
+  let favouriteMap;
+  if (getFromStorage('favourite') != null) {
+    favouriteMap = new Map(Object.entries(getFromStorage('favourite')));
+  }
+  
 
   $.ajax({
     url: queryUrl,
@@ -29,7 +37,7 @@ function getRecipe() {
       var queryUrl2 =
         "https://api.spoonacular.com/recipes/" +
         recipeId +
-        "/information?&apiKey=6f5b740887744617a3980e15981b89e9";
+        "/information?&apiKey=" + apiKey;
 
       $.ajax({
         url: queryUrl2,
@@ -96,6 +104,9 @@ function getRecipe() {
         cardIcon.addClass("las la-heart");
 
         cardIcon.attr("id", response.results[i].id);
+        if(favouriteMap != null && favouriteMap.get(response.results[i].id) != null){
+          cardIcon.addClass('favourite');
+        }
         cardIcon.attr(
           "onClick",
           "addToFavourite(" + response.results[i].id + ")"
@@ -107,5 +118,22 @@ function getRecipe() {
 
 function addToFavourite(id) {
   console.log("added {} to favourite", id);
-  $("#" + id).toggleClass("favourite");
+  $("#" + id).toggleClass('favourite');
+  let favouriteMap = new Map();
+  if (getFromStorage('favourite') != null) {
+    favouriteMap = new Map(Object.entries(getFromStorage('favourite')));
+  }
+  
+  favouriteMap.set(id, id);
+  saveToStorage('favourite', favouriteMap);
+}
+
+// function for geting local storage value
+function getFromStorage(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+
+// function for saving local storage value
+function saveToStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
 }
