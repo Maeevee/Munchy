@@ -119,12 +119,20 @@ function getRecipe() {
 function addToFavourite(id) {
   console.log("added {} to favourite", id);
   $("#" + id).toggleClass('favourite');
+  let temp = getFromStorage('favourite');
   let favouriteMap = new Map();
-  if (getFromStorage('favourite') != null) {
-    favouriteMap = new Map(Object.entries(getFromStorage('favourite')));
+  if (temp != null) {
+    favouriteMap = new Map(Object.entries(temp));
   }
-  
-  favouriteMap.set(id, id);
+  // check recipe exist in the local storage or not
+  if (favouriteMap.get(id.toString()) != null) {
+    // remove recipe if exist
+    favouriteMap.delete(id.toString());
+  } else {
+    // add recipe to favourite if not exist
+    favouriteMap.set(id, id);
+  }
+
   saveToStorage('favourite', Object.fromEntries(favouriteMap));
 }
 
