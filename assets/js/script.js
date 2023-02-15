@@ -1,4 +1,4 @@
-const apiKey = "e0e319394f344c14a741c1bf1fee33e5";
+const apiKey = "b5de46c0215a4ae984eacc71b7e57a64";
 
 $(".getRecipeBtn").on("click", function (event) {
   event.preventDefault();
@@ -70,6 +70,7 @@ function getRecipe() {
 
         cardTitle.text(response.results[i].title);
         recipeImg.attr("src", response.results[i].image);
+        recipeImg.attr("onClick", "changePage(" + response.results[i].id + ")");
 
         cardTitle.text(response.results[i].title);
         recipeImg.attr("src", response.results[i].image);
@@ -144,4 +145,8 @@ function getFromStorage(key) {
 // function for saving local storage value
 function saveToStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
+}
+
+function changePage(id){
+  location.href = "./my-recipes.html?id=" + id;
 }
