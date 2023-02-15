@@ -1,3 +1,5 @@
+const apiKey = "e0e319394f344c14a741c1bf1fee33e5";
+
 $(".getRecipeBtn").on("click", function (event) {
   event.preventDefault();
 
@@ -12,7 +14,13 @@ function getRecipe() {
   var queryUrl =
     "https://api.spoonacular.com/recipes/complexSearch?query=" +
     query +
-    "&apiKey=6f5b740887744617a3980e15981b89e9";
+    "&apiKey=" + apiKey;
+
+  let favouriteMap;
+  if (getFromStorage('favourite') != null) {
+    favouriteMap = new Map(Object.entries(getFromStorage('favourite')));
+  }
+  
 
   $.ajax({
     url: queryUrl,
@@ -29,7 +37,7 @@ function getRecipe() {
       var queryUrl2 =
         "https://api.spoonacular.com/recipes/" +
         recipeId +
-        "/information?&apiKey=6f5b740887744617a3980e15981b89e9";
+        "/information?&apiKey=" + apiKey;
 
       $.ajax({
         url: queryUrl2,
@@ -54,7 +62,7 @@ function getRecipe() {
         var recipeImg = $("<img>");
         var cardTextContainer = $("<div>");
         var cardTitle = $("<h3>");
-        var cardIconButton = $("<a>");
+        var cardIconButton = $("<div>");
         var cardIcon = $("<i>");
 
         // var cardStyle = $(".cardStyle");
@@ -96,7 +104,10 @@ function getRecipe() {
         cardIcon.addClass("las la-heart");
 
         cardIcon.attr("id", response.results[i].id);
-        cardIconButton.attr(
+        if(favouriteMap != null && favouriteMap.get(response.results[i].id.toString()) != null){
+          cardIcon.addClass('favourite');
+        }
+        cardIcon.attr(
           "onClick",
           "addToFavourite(" + response.results[i].id + ")"
         );
@@ -107,5 +118,30 @@ function getRecipe() {
 
 function addToFavourite(id) {
   console.log("added {} to favourite", id);
-  $("#" + id).toggleClass("favourite");
+  $("#" + id).toggleClass('favourite');
+  let temp = getFromStorage('favourite');
+  let favouriteMap = new Map();
+  if (temp != null) {
+    favouriteMap = new Map(Object.entries(temp));
+  }
+  // check recipe exist in the local storage or not
+  if (favouriteMap.get(id.toString()) != null) {
+    // remove recipe if exist
+    favouriteMap.delete(id.toString());
+  } else {
+    // add recipe to favourite if not exist
+    favouriteMap.set(id, id);
+  }
+
+  saveToStorage('favourite', Object.fromEntries(favouriteMap));
+}
+
+// function for geting local storage value
+function getFromStorage(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+
+// function for saving local storage value
+function saveToStorage(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
 }
