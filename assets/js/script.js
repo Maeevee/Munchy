@@ -12,7 +12,7 @@ function getRecipe() {
   var queryUrl =
     "https://api.spoonacular.com/recipes/complexSearch?query=" +
     query +
-    "&apiKey=6f5b740887744617a3980e15981b89e9";
+    "&apiKey=ec201586cbae46b99c0390b4c3659e37";
 
   $.ajax({
     url: queryUrl,
@@ -29,7 +29,7 @@ function getRecipe() {
       var queryUrl2 =
         "https://api.spoonacular.com/recipes/" +
         recipeId +
-        "/information?&apiKey=6f5b740887744617a3980e15981b89e9";
+        "/information?&apiKey=ec201586cbae46b99c0390b4c3659e37";
 
       $.ajax({
         url: queryUrl2,
@@ -44,8 +44,13 @@ function getRecipe() {
 
         var recipeUrl = $("<a>");
 
-        recipeUrl.text(response1.sourceUrl);
-        recipeUrl.attr("href", response1.sourceUrl);
+        recipeUrl.text("View Recipe");
+        recipeUrl.attr({
+          "href": response1.sourceUrl,
+          "target": "_blank",
+          "type": "button"
+        });
+        
 
         //Creating extra wrap element and icon for cards
 
@@ -88,18 +93,17 @@ function getRecipe() {
         cardBody.addClass("card h-100 text-dark bg-light mb-3");
         recipeImg.addClass("card-img-top p-4");
         cardTitle.addClass("card-title m-2");
+
+        //recipeUrl
+        recipeUrl.addClass("btn btn-primary m-2 viewRecipeBtn mx-3 mb-3");
+
         //Create heart icon
-        cardTextContainer.addClass(
-          "card-body d-flex flex-row justify-content-between"
-        );
+        cardTextContainer.addClass("card-body d-flex flex-row justify-content-between");
         cardIconButton.addClass("iconButton");
         cardIcon.addClass("las la-heart");
 
         cardIcon.attr("id", response.results[i].id);
-        cardIconButton.attr(
-          "onClick",
-          "addToFavourite(" + response.results[i].id + ")"
-        );
+        cardIconButton.attr("onClick","addToFavourite(" + response.results[i].id + ")");
       });
     }
   });
