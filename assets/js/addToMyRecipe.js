@@ -15,6 +15,7 @@ $(document).ready(function () {
         method: "GET",
       }).then(function (response) {
         console.log(response);
+        
         const title = response.title;
         const image = response.image;
         const sourse = response.sourceUrl;
