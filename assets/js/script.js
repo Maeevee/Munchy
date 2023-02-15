@@ -1,4 +1,4 @@
-const apiKey = "e0e319394f344c14a741c1bf1fee33e5";
+const apiKey = "b5de46c0215a4ae984eacc71b7e57a64";
 
 $(".getRecipeBtn").on("click", function (event) {
   event.preventDefault();
