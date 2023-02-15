@@ -84,7 +84,7 @@ main div.container-fluid div.row div a.myRecipe {
     box-shadow: inset 0px 5px 10px 0px rgba(227, 100, 32, 0.5);
 }
 
-main div.container-fluid div.row div a.myRecipe:hover {
+main div.container-fluid div.row div a.myRecipe:hover, main div.cards div#cardContainer div.col div.card a.viewRecipeBtn:hover {
     transform: scale(1.03);
     box-shadow: 0px 10px 20px 2px rgba(56, 51, 49, 0.25);
 	/* background: linear-gradient(to bottom, #ff6123 5%, #ffaf64 100%);
@@ -92,7 +92,7 @@ main div.container-fluid div.row div a.myRecipe:hover {
     color: #fff; */
 }
 
-main div.container-fluid div.row div a.myRecipe:active {
+main div.container-fluid div.row div a.myRecipe:active, main div.cards div#cardContainer div.col div.card a.viewRecipeBtn:active {
     background: linear-gradient(to bottom, #ff6123 5%, #ffaf64 100%);
 	background-color: #ff6123;
     color: #fff;
@@ -181,6 +181,23 @@ div.cards {
 
 .favourite{
    color: #ff0000 !important;
+}
+
+/* viewRecipeBtn */
+
+main div.cards div#cardContainer div.col div.card a.viewRecipeBtn {
+	background: linear-gradient(to bottom, #ffaf64 5%, #ff6123 100%);
+	background-color: #fa791d;
+	border-radius: 6px;
+	border: 1px solid #ee6e0b;
+	display: inline-block;
+	cursor: pointer;
+	color: #fff;
+	font-family: "Poppins", sans-serif;
+	font-size: 1.0rem;
+	padding: 10px 24px;
+	text-decoration: none;
+    box-shadow: inset 0px 5px 10px 0px rgba(227, 100, 32, 0.5);
 }
 
 /* Footer */
