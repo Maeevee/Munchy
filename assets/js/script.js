@@ -1,4 +1,4 @@
-const apiKey = "b5de46c0215a4ae984eacc71b7e57a64";
+const apiKey = "d491a8d06b914d54ae7043829ff99278";
 
 $(".getRecipeBtn").on("click", function (event) {
   event.preventDefault();
@@ -14,11 +14,12 @@ function getRecipe() {
   var queryUrl =
     "https://api.spoonacular.com/recipes/complexSearch?query=" +
     query +
-    "&apiKey=" + apiKey;
+    "&apiKey=" +
+    apiKey;
 
   let favouriteMap;
-  if (getFromStorage('favourite') != null) {
-    favouriteMap = new Map(Object.entries(getFromStorage('favourite')));
+  if (getFromStorage("favourite") != null) {
+    favouriteMap = new Map(Object.entries(getFromStorage("favourite")));
   }
 
   $.ajax({
@@ -36,7 +37,8 @@ function getRecipe() {
       var queryUrl2 =
         "https://api.spoonacular.com/recipes/" +
         recipeId +
-        "/information?&apiKey=" + apiKey;
+        "/information?&apiKey=" +
+        apiKey;
 
       $.ajax({
         url: queryUrl2,
@@ -53,11 +55,10 @@ function getRecipe() {
 
         recipeUrl.text("View Recipe");
         recipeUrl.attr({
-          "href": response1.sourceUrl,
-          "target": "_blank",
-          "type": "button"
+          href: response1.sourceUrl,
+          target: "_blank",
+          type: "button",
         });
-        
 
         //Creating extra wrap element and icon for cards
 
@@ -105,14 +106,19 @@ function getRecipe() {
         recipeUrl.addClass("btn btn-primary m-2 viewRecipeBtn mx-3 mb-3");
 
         //Create heart icon
-        cardTextContainer.addClass("card-body d-flex flex-row justify-content-between");
+        cardTextContainer.addClass(
+          "card-body d-flex flex-row justify-content-between"
+        );
         cardIconButton.addClass("iconButton");
         cardIcon.addClass("las la-heart");
 
         cardIcon.attr("id", response.results[i].id);
         //cardIconButton.attr("onClick","addToFavourite(" + response.results[i].id + ")");
-        if(favouriteMap != null && favouriteMap.get(response.results[i].id.toString()) != null){
-          cardIcon.addClass('favourite');
+        if (
+          favouriteMap != null &&
+          favouriteMap.get(response.results[i].id.toString()) != null
+        ) {
+          cardIcon.addClass("favourite");
         }
         cardIcon.attr(
           "onClick",
@@ -125,8 +131,8 @@ function getRecipe() {
 
 function addToFavourite(id) {
   console.log("added {} to favourite", id);
-  $("#" + id).toggleClass('favourite');
-  let temp = getFromStorage('favourite');
+  $("#" + id).toggleClass("favourite");
+  let temp = getFromStorage("favourite");
   let favouriteMap = new Map();
   if (temp != null) {
     favouriteMap = new Map(Object.entries(temp));
@@ -140,7 +146,7 @@ function addToFavourite(id) {
     favouriteMap.set(id, id);
   }
 
-  saveToStorage('favourite', Object.fromEntries(favouriteMap));
+  saveToStorage("favourite", Object.fromEntries(favouriteMap));
 }
 
 // function for geting local storage value
